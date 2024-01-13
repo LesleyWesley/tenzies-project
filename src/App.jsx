@@ -5,6 +5,17 @@ import './App.css'
 import Dice from "./components/Dice.jsx"
 
 function App() {
+
+    function allNewDice() {
+      let newDiceArray = []
+      for (let i = 0; i < 10; i++) {
+        newDiceArray.push( Math.floor(Math.random() * 7))
+      }
+      console.log(newDiceArray)
+    }
+
+    allNewDice()
+
     return (
       <main>
         <div className="dice-container">
