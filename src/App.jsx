@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from "react"
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -11,24 +11,21 @@ function App() {
       for (let i = 0; i < 10; i++) {
         newDiceArray.push( Math.floor(Math.random() * 7))
       }
-      console.log(newDiceArray)
+      return newDiceArray
     }
 
-    allNewDice()
+    const [newDice, setNewDice] = React.useState(allNewDice())
+
+    const diceElements = newDice.map(die => {
+      return (
+        <Dice  number={die}/>
+      )
+    })
 
     return (
       <main>
         <div className="dice-container">
-          <Dice number="6"/>
-          <Dice number="2" />
-          <Dice number="1" />
-          <Dice number="5" />
-          <Dice number="4" />
-          <Dice number="6"/>
-          <Dice number="2" />
-          <Dice number="1" />
-          <Dice number="5" />
-          <Dice number="4" />
+          {diceElements}
         </div>
       </main>
     )
