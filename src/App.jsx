@@ -25,9 +25,13 @@ function App() {
       setNewDice(allNewDice())
     }
 
+    function holdDice(id) {
+      console.log(id)
+    }
+
     const diceElements = newDice.map(die => {
       return (
-        <Dice  key={die.id} number={die.value} isHeld={die.isHeld}/>
+        <Dice  key={die.id} number={die.value} isHeld={die.isHeld} handleClick={() => holdDice(die.id)}/>
       )
     })
 

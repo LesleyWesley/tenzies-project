@@ -5,7 +5,7 @@ function Dice(props) {
       backgroundColor: props.isHeld ? "#59E391" : "#FFF"
   }
   return (
-    <div className="die" style={styles}>{props.number}</div>
+    <div className="die" style={styles} onClick={props.handleClick}>{props.number}</div>
   )
 }
 
