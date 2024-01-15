@@ -43,7 +43,7 @@ main {
   height: 50px;
   aspect-ratio: 1;
   border-radius: 5px;
-  background-color: #FFF;
+  /*background-color: #FFF;*/
   color: #2B283A;
   font-weight: 700;
   font-size: 1.75rem;

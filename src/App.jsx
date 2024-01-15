@@ -19,8 +19,6 @@ function App() {
       return newDiceArray
     }
 
-    console.log(allNewDice())
-
     const [newDice, setNewDice] = React.useState(allNewDice())
 
     function roll() {
@@ -29,7 +27,7 @@ function App() {
 
     const diceElements = newDice.map(die => {
       return (
-        <Dice  key={die.id} number={die.value}/>
+        <Dice  key={die.id} number={die.value} isHeld={die.isHeld}/>
       )
     })
 
