@@ -16,6 +16,10 @@ function App() {
 
     const [newDice, setNewDice] = React.useState(allNewDice())
 
+    function roll() {
+      setNewDice(allNewDice())
+    }
+
     const diceElements = newDice.map(die => {
       return (
         <Dice  number={die}/>
@@ -27,6 +31,7 @@ function App() {
         <div className="dice-container">
           {diceElements}
         </div>
+        <button type="button" className="roll-button" onClick={roll}>Roll</button>
       </main>
     )
 }
