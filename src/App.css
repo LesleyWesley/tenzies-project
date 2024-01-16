@@ -23,13 +23,24 @@ body {
 
 main {
   background-color: #F5F5F5;
-  height: 400px;
+  height: 415px;
   aspect-ratio: 1;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+}
+
+.instructions {
+  margin: 0 2.5rem;
+  text-align: center;
+  font-size: 1.125rem;
+
 }
 
 .dice-container {

@@ -7,14 +7,18 @@ import Dice from "./components/Dice.jsx"
 
 function App() {
 
+    function generateNewDie() {
+      return {
+        value: Math.floor(Math.random() * 7),
+        isHeld: false,
+        id: nanoid()
+      }
+    }
+
     function allNewDice() {
       let newDiceArray = []
       for (let i = 0; i < 10; i++) {
-        newDiceArray.push({
-          value: Math.floor(Math.random() * 7),
-          isHeld: false,
-          id: nanoid()
-        })
+        newDiceArray.push(generateNewDie())
       }
       return newDiceArray
     }
@@ -22,7 +26,11 @@ function App() {
     const [newDice, setNewDice] = React.useState(allNewDice())
 
     function roll() {
-      setNewDice(allNewDice())
+      setNewDice(oldDice => oldDice.map( die => {
+        return die.isHeld === true ?
+          die :
+          generateNewDie()
+        }))
     }
 
     function holdDice(id) {
@@ -41,6 +49,8 @@ function App() {
 
     return (
       <main>
+        <h1>Tenzies</h1>
+        <p className="instructions">Roll until all dice are the same.  Click each die to freeze it at its current value between rolls.</p>
         <div className="dice-container">
           {diceElements}
         </div>
