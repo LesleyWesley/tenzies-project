@@ -26,7 +26,11 @@ function App() {
     }
 
     function holdDice(id) {
-      console.log(id)
+        setNewDice(oldDice => oldDice.map( die => {
+          return die.id === id ?
+            { ...die, isHeld: !die.isHeld} :
+            die
+        }))
     }
 
     const diceElements = newDice.map(die => {
