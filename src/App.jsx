@@ -7,6 +7,13 @@ import Dice from "./components/Dice.jsx"
 
 function App() {
 
+    const [newDice, setNewDice] = React.useState(allNewDice())
+    const [tenzies, setTenzies] = React.useState(false)
+
+    React.useEffect(
+      console.log("This is the effect")
+    )
+
     function generateNewDie() {
       return {
         value: Math.floor(Math.random() * 7),
@@ -22,8 +29,6 @@ function App() {
       }
       return newDiceArray
     }
-
-    const [newDice, setNewDice] = React.useState(allNewDice())
 
     function roll() {
       setNewDice(oldDice => oldDice.map( die => {
