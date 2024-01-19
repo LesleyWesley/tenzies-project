@@ -2,6 +2,7 @@ import React from "react"
 import { nanoid } from "nanoid"
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import Confetti from "react-confetti"
 import './App.css'
 import Dice from "./components/Dice.jsx"
 
@@ -59,12 +60,13 @@ function App() {
 
     return (
       <main>
+        {tenzies && <Confetti />}
         <h1>Tenzies</h1>
         <p className="instructions">Roll until all dice are the same.  Click each die to freeze it at its current value between rolls.</p>
         <div className="dice-container">
           {diceElements}
         </div>
-        <button type="button" className="roll-button" onClick={roll}>Roll</button>
+        <button type="button" className="roll-button" onClick={roll}>{tenzies ? "New Game" : "Roll"}</button>
       </main>
     )
 }
