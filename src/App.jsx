@@ -10,9 +10,14 @@ function App() {
     const [newDice, setNewDice] = React.useState(allNewDice())
     const [tenzies, setTenzies] = React.useState(false)
 
-    React.useEffect(
-      console.log("This is the effect")
-    )
+    React.useEffect( () => {
+      const allHeld = newDice.every(die => die.isHeld)
+      const allSameValue = newDice.every(die => die.value === newDice[0].value)
+      if (allHeld && allSameValue) {
+        setTenzies(true)
+        console.log("You won!")
+      }
+    }, [newDice])
 
     function generateNewDie() {
       return {
